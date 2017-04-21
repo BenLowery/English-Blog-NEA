@@ -12,7 +12,7 @@ class Comments extends Model
 	 * @var string
 	*/
 	protected $table = 'comment';
-
+	// Since these tables are connected create a function and explain relationship
 	public function post() {
 		return $this->belongsTo('App\Models\Posts');
 	}
