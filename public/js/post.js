@@ -10,12 +10,19 @@ window.onload = function() {
 		
 		// Get id of choice
 		var response = e.target.id;
+
+		// Change inner html of hidden form
+		document.getElementById("hidden-comment").value = response;
+
+		// submit a form
+		document.getElementById("form").submit();
 		
 		// Appropriate response
-		alert("You thought this post was " + response + "! \n thanks for your response");
-		return;
+		alert("thanks for your response");
 		
-	
+
+		return; 
+		
 	}
 
 }

@@ -18,7 +18,7 @@
 <body>
 	@include('nav')
 	<div class="post__container">
-		<h1>{{$info->title}} <i class="twa twa-confused"></i></h1>
+		<h1>{{$info->title}} <i class="twa twa-{{$emoji}}"></i></h1>
 		<div class="content__block">
 			@include('posts_files/' . $info->url)
 			<br />
@@ -37,7 +37,14 @@
 		</div>
 	</div>
 	<div class="post__comments__container">
-		<div id="emoji" class="comment__emojis"><h3>React:</h3><br /><i id="great" class="twa twa-3x twa-grin"></i><i id="funny" class="twa twa-3x twa-joy"></i><i id="thought_provoking" class="twa twa-3x twa-thinking-face"></i><i id="confusing" class="twa twa-3x twa-confused"></i><i id="boring" class="twa twa-3x twa-sleeping-face"></i></div>
+		<div id="emoji" class="comment__emojis"><h3>React:</h3><br /><i id="grin" class="twa twa-3x twa-grin"></i><i id="joy" class="twa twa-3x twa-joy"></i><i id="thinking-face" class="twa twa-3x twa-thinking-face"></i><i id="confused" class="twa twa-3x twa-confused"></i><i id="sleeping-face" class="twa twa-3x twa-sleeping-face"></i></div>
 	</div>
+
+	{{--Hidden form--}}
+	<form id="form" action="{{url('/post/' . $info->url)}}" method="post">
+		<input type="text" id="hidden-comment" name="emoji" style="display: none;" />
+    	<input type="text" id="hidden-title" name="url" value="{{$info->url}}" style="display:none;">
+    	{{ csrf_field() }}
+	</form>
 </body>
 </html>

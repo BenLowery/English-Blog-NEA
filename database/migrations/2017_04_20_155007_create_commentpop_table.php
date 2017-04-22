@@ -16,7 +16,8 @@ class CreateCommentpopTable extends Migration
         Schema::create('comment', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id');
-            $table->string('emoji_and_popularity', 255);
+            $table->string('emoji', 255);
+            $table->timestamps();
          });
     }
 

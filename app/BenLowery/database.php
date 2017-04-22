@@ -16,6 +16,7 @@ namespace App\BenLowery;
 * efficiant for us.
 */
 use App\BenLowery\Helper;
+use App\Models\Comments as comment;
 use App\Models\Posts as post;
 use App\Models\Users as user;
 use App\Models\Tokens as token;
@@ -57,6 +58,45 @@ class Database {
 	// This only gets accepted posts
 	public function getPostInfoAndAccepted($column, $item) {
 		return post::where($column, $item)->where('accepted', 'yes')->get();
+	}
+
+
+	public function UpdateCommentTable($emojiname, $url) {
+		// Get post id from url
+		$postid = post::where('url', $url)->get()[0]->id;
+
+		// Create new comment and fill in info
+		$newComment = new comment;
+		$newComment->post_id = $postid;
+		$newComment->emoji = $emojiname;
+		// save to db
+		return $newComment->save();
+	}
+
+	public function getMostPopularEmoji($url) {
+		$pop = [];
+
+		// Get post id from url
+		$postid = post::where('url', $url)->get()[0]->id;
+
+		// Get all rows with this post id and convert to array
+		$rows = comment::where('post_id', $postid)->get();
+
+		// If empty return joy emoji becasue everyone
+		// needs a head start
+		if($rows->count() === 0) {
+			return "joy";
+		}
+
+		foreach ($rows as $row) {
+			// Collect all emoji answers
+			array_push($pop, $row->emoji);
+		}
+		// Get numeric values of emojis
+		$pop = array_count_values($pop);
+
+		// find most popular
+		return array_search(max($pop), $pop);
 	}
 
 	/**

@@ -26,8 +26,11 @@ class postController extends Controller
    			abort(404);
    		} 
 
-   		// Get all the required information
+   		// Get all the required information...
    		$infoArray = $this->db->getPostInfo('url', $slug);
+
+         // ...Well except her where we get most popular emoji
+         $popEmoji = $this->mostPopularEmoji($slug);
 
          // Convert tag contents in the db into an array
          $infoArray[0]['tags'] = explode(',', $infoArray[0]['tags']);
@@ -36,11 +39,22 @@ class postController extends Controller
    		return view('post.post', Array(
    			// Use [0] as we only have one result and we only want information form that
    			// One person
-   			'info' => $infoArray[0]
+   			'info' => $infoArray[0],
+            'emoji' => $popEmoji,
    		)
    		);
    }
 
+
+   // Add comment to comment table 
+   public function addComment(Request $request) {
+      // add to database
+      $this->db->UpdateCommentTable($request->input('emoji'), $request->input('url'));
+
+      // Return the post view
+      return redirect('post/' . $request->input('url'));
+   }
+   
    // Author posts view
    public function author($name) {
       // Deslug url
@@ -82,4 +96,10 @@ class postController extends Controller
       // Finally, generate view passing array of posts, the tag, and count variables
       return view('post.tags', array('post' => $tagsarr, 'tag' => $id, 'count' => count($tagsarr)));
    }
+
+   // Return the most popular emoji
+   protected function mostPopularEmoji($url) {
+         return $this->db->getMostPopularEmoji($url);
+   }
+
 }
