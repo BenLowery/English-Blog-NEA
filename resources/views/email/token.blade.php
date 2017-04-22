@@ -1,0 +1,1 @@
+<p>token: http://localhost:8000/login/verify/{{$token}}</p>

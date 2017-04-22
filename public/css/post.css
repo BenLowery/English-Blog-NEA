@@ -1,0 +1,36 @@
+.post__container {
+	width: 50%;
+	margin: auto;
+}
+
+.post__container h1 {
+	color: #00b36a;
+	font-size: 2.5em;
+}
+
+.post__metadata__container {
+	margin-top: 50px;
+	border-top: 2px solid #ecf0f1;
+	padding: 20px 10px 20px 10px;
+	
+}
+
+.post__comments__container {
+	position: absolute;
+	padding: 10px;
+	width: 100%;
+	background: #f9f9f9;
+	height:200px;
+	overflow: hidden;
+}
+
+.comment__emojis {
+	padding: 20px;
+	width: 30%;
+	margin: auto;
+}
+
+.comment__emojis i:hover {
+	padding-bottom:4px;
+	cursor: pointer;
+}

@@ -1,0 +1,222 @@
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  /*Default text color*/
+  color: #222422;
+  /*Background color*/
+  background-color:#fefefe;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #00b36a;
+  text-decoration: none;
+}
+
+nav {
+  border-bottom: 2px solid #ecf0f1;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+nav .right-float {
+  float: right;
+  margin-right: 2%;
+}
+
+nav a {
+  margin-left: 2%;
+  font-weight: lighter;
+  color: #000;
+}
+nav a:hover {
+  color: #7f8c8d;
+}
+
+.editor__container {
+  margin: auto;
+  width: 55%;
+}
+
+.editor__container__toolbar {
+  padding: 5px 5px 12px 5px;
+  margin-bottom: 26px;
+  outline: 0px solid transparent;
+}
+
+.editor__container__toolbar .section a {
+   padding: 5px 5px 2.5px 5px;
+   margin-bottom: 26px;
+   outline: 0px solid transparent;
+}
+
+/*:hover changes css properties when the mouse is on the specified tag*/
+.editor__container__toolbar .section a:hover {
+  /* Sometimes certain browsers behave differently, we solve thsi by adding a browser
+    before we assign the property a value*/
+  -webkit-transition: border-bottom 100ms;
+  transition: border-bottom 50ms;
+  border-bottom: 4px solid #2ecc71;
+}
+
+.editor__container__content {
+  font-weight: normal;
+  outline: none;
+  padding: 20px 5px 5px 5px;
+  border-bottom: 4px solid #a9a9a9;
+}
+
+/* Focus is when the user interacts with the div by clicking on it*/
+.editor__container__content:focus {
+  -webkit-transition: border-bottom 200ms;
+    transition: border-bottom 200ms;
+  border-bottom: 4px solid #2ecc71;
+}
+
+
+
+.editor__container__title {
+  background: transparent;
+  height: 55px;
+  font-size: 32px;
+  color: #696969;
+  width: 100%;
+  outline: none;
+  margin: 12px auto 22px auto;
+  text-decoration: none;
+  border: none;
+}
+
+.editor__container__content a {
+  color: #2ecc71;
+}
+
+.editor__container__tags {
+  background: transparent;
+  height: 22px;
+  font-size: 12px;
+  color: #696969;
+  width: 100%;
+  outline: none;
+  margin: auto;
+  padding-left: 5px;
+  text-decoration: none;
+  border: none;
+  border-left: 1px solid #2ecc71;
+}
+
+/*
+* Code for the popup bar
+*/
+
+.link__container {
+  /*set some default properties to stop any problems on browsers that might not
+   behave properly*/
+  position: fixed;
+  height:100%;
+  width:100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #000;
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+  /* RGBA allows me to change opacity and give it a neater finish */
+  background: rgba(52, 73, 94, 0.8);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.link__container:target {
+	
+  visibility: visible;
+  /* Well if 0 means not visible, any guesses for what 1 means? */
+  opacity: 1;
+}
+
+.link__container__popup {
+  -webkit-transition: width 1200ms;
+  transition: width 1200ms;
+  box-shadow: 0.6em 0.5em rgb(62, 93, 104);
+  margin: 120px auto;
+  width: 29%;
+  background: #fff;
+  height: 175px;
+  /*Gives nice curved edges*/
+  border-radius: 3px;
+}
+
+.link__container__popup__header {
+  background: #27ae60;
+  color: #fff;
+}
+
+.link__container__popup h2 {
+	padding:2px 0 10px 15px; 
+	/*Just needed to keep the font looking clean and consistent*/
+	font-weight: normal;
+}
+
+.link__container__popup__input {
+  height:25px;
+  /* Em/pixels, doesnt matter but Em is easier when you dont care for precise sizes*/
+  font-size: 1.3em;
+  width: 75%;
+  margin: auto auto auto 12.5%;
+  /*For some reason it needs me to define this again*/
+  margin-bottom: 22px;
+  /* Added so i can insert a transition*/
+  border: 0px solid #fff;
+  border-bottom: 3px solid #2ecc71;
+  outline: 0px solid #fff;
+} 
+
+.link__container__popup__input:focus {
+  -webkit-transition: border-bottom 500ms;
+  transition: border-bottom 500ms;
+  border-bottom: 3px solid #27ae60;
+}
+
+.link__container__popup a {
+  width: 75%;
+  margin: 40px;
+  padding:3px;
+  color: #000;
+}
+
+.button__container {
+  margin: 15px auto auto auto;
+}
+
+.styledButton {
+  border-bottom: 3px solid #fefefe;
+  padding: 5px;
+  color: #222222;
+  font-size: 12px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 12px 5px 12px;
+}
+
+.styledButton:hover{
+ -webkit-transition: border-bottom 500ms; 
+ transition: border-bottom 500ms;
+ border-bottom:3px solid #27ae60;
+}
+
+/*Media screen property allows the changing of CSS properties when the screen
+ size reaches a certain width.*/
+@media screen and (max-width: 750px){
+  body {
+    position: fixed;
+  }
+  .link__container__popup {
+    -webkit-transition: width 1200ms;
+    transition: width 1200ms;
+    width: 55%;
+  }
+}

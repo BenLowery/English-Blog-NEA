@@ -1,0 +1,157 @@
+.post__review__container {
+   /* basic styling */
+    width: auto;
+    margin-top: 5%;
+    margin-left: 5%;
+    /* flexbox setup (IE 11+) */
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction: column;
+    -webkit-flex-wrap: wrap; /* Safari */
+    flex-wrap: wrap; 
+}
+
+.post__review__container > .flex {
+  flex: 1 1 auto;
+  width: auto; 
+  height: auto;
+  transition: width 0.7s ease-out;
+}
+
+.user__table__container {
+  /* basic styling */
+    width: auto;
+    margin-top: 5%;
+    /* flexbox setup (IE 11+) */
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row; /* Safari */
+    flex-direction: row;
+    text-align: center;
+}
+
+.user__table__container > .flex {
+  flex: 1 1 auto;
+  width: auto; 
+  height: auto;
+  transition: width 0.7s ease-out;
+}
+
+.intro {
+  width:83%;
+  margin: auto;
+  text-align: center;
+}
+
+.setting__container {
+   /* basic styling */
+    width: auto;
+    margin-top: 5%;
+    margin-left: 17%;
+    text-align: left;
+}
+
+.twitter__container {
+  width:100%;
+  position: relative;
+}
+.setting__container input {
+  background: transparent;
+  font-size: 32px;
+  color: #696969;
+  width: 100%;
+  outline: none;
+  margin: 12px auto 22px auto;
+  text-decoration: none;
+  border: none;
+}
+
+.setting__container button {
+  border:none;
+  border-bottom: 1.5px solid #00b36a;
+  color: #222222;
+  font-size: 12px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.setting__container .content {
+  max-width: 420px;
+  font-weight: normal;
+  outline: none;
+  padding: 20px 5px 20px 5px;
+  border-left: 4px solid #a9a9a9;
+}
+
+.setting__container .content:focus {
+  border-left: 4px solid #00b36a;
+}
+/*
+* Code for popup
+*/
+.popup__container {
+  /*set some default properties to stop any problems on browsers that might not
+   behave properly*/
+  position: fixed;
+  overflow: scroll;
+  height:auto;
+  width:100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #000;
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+  /* RGBA allows me to change opacity and give it a neater finish */
+  background: rgba(52, 73, 94, 0.8);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popup__container:target {
+  visibility: visible;
+  /* Well if 0 means not visible, any guesses for what 1 means? */
+  opacity: 1;
+}
+
+.popup__item__container {
+  padding: 22px;
+  -webkit-transition: width 1200ms;
+  transition: width 1200ms;
+  box-shadow: 0.6em 0.5em rgb(62, 93, 104);
+  margin: 120px auto;
+  width: 55%;
+  background: #fff;
+  height: auto;
+  /*Gives nice curved edges*/
+  border-radius: 3px;
+}
+
+.popup__item__quit {
+  position: fixed;
+  margin-left: 5%;
+}
+
+.popup__item__quit a {
+    color: #fff;
+}
+
+.styledButton {
+  border-bottom: 3px solid #fefefe;
+  padding: 5px;
+  color: #222222;
+  font-size: 12px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 12px 5px 12px;
+}
+
+.styledButton:hover{
+ -webkit-transition: border-bottom 500ms; 
+ transition: border-bottom 500ms;
+ border-bottom:3px solid #27ae60;
+}

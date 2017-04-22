@@ -1,0 +1,46 @@
+h1 {
+	color: #00b36a;
+}
+
+.login__container {
+	width: 75%;
+	margin: auto;
+}
+
+.login__form input {
+	padding-left: 2px;
+	outline: none;
+	border:none;
+	text-decoration:none;
+	height: 35px;
+	width: 75%;
+	font-size: 1.5em;
+	border-bottom: 5.5px solid #ecf0f1;
+}
+
+.login__form input:focus {
+	-webkit-transition: border-bottom 500ms;
+	transition: border-bottom 500ms;
+	border-bottom: 5.5px solid #00b36a;
+}
+
+.login__form button {
+	-webkit-transition: border-bottom 150ms;
+	transition: border-bottom 150ms;
+	background-color: #fff;
+	margin-top: 44px;
+	font-size: 1.4em;
+	text-align: center;
+    text-decoration: none;
+	cursor: pointer;
+	/* remove the border, open immigration style*/
+	border: none;
+	/* Never mind wrong person voted in, put it up in the south */
+	border-bottom: 0.5px solid #00b36a;
+}
+
+.login__form button:hover {
+	-webkit-transition: border-bottom 150ms;
+	transition: border-bottom 150ms;
+	border-bottom: 5.5px solid #00b36a;
+}

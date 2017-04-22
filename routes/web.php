@@ -20,7 +20,7 @@
 Route::get('/', 'HomeController@displayPosts');
 Route::get('/about', 'HomeController@displayAbout');
 Route::get('/post/{slug}', 'postController@display');
-Route::post('/post/{slug}', 'postController@addComment');
+// Route::post('/post/{slug}', 'postController@addComment');
 
 // Search routes
 Route::get('/author/{name}', 'postController@author');
@@ -32,10 +32,13 @@ Route::post('/search', 'searchController@showResults');
 // Only allow logged in users on this route
 Route::get('/create', 'createController@editor')->middleware('login:allow');
 Route::post('/create', 'createController@publishPending');
+Route::get('/dashboard', 'adminController@dashboard')->middleware('login:allow');
+
+
+Route::get('/dashbaord', 'adminController@dashboard');
 
 // Admin middleware makes sure we are just dealing with teachers (called admin here)
-Route::group(['middleware' => ['admin']], function () {
-	Route::get('/admin', 'adminController@index');
+Route::group(['middleware' => ['role:admin']], function () {
 	Route::get('/admin/manage', 'adminController@manageUsers');
 	Route::get('/admin/post_review', 'adminController@displayPostReview');
 	Route::get('/admin/acceptPost/{id}', 'adminController@accept');
@@ -45,8 +48,7 @@ Route::group(['middleware' => ['admin']], function () {
 });
 
 // Middleware for only students being allowed in this area
-Route::group(['middleware' => ['student']], function () {
-	Route::get('/student', 'studentController@index');
+Route::group(['middleware' => ['role:student']], function () {
 	Route::get('/student/subscribe/{booleanVal}', 'studentController@handleSub');
 	Route::get('/student/posts', 'studentController@postManagement');
 });
@@ -54,7 +56,7 @@ Route::group(['middleware' => ['student']], function () {
 // Routes for login
 // If session is set we redirect the user to another place
 Route::group(['middleware' => 'login:redirect'], function() {
-    Route::get('/login', 'loginController@loginPage');
+	Route::get('/login', 'loginController@loginPage');
 	Route::get('/login/verify/{token}', 'loginController@VerifyLogin');
 	Route::post('/login', 'loginController@SendVerify');
 });

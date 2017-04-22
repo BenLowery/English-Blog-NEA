@@ -3,14 +3,13 @@
 <head>
 	<!--Include css file(s)-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{url('css/global.css')}}">
 	<link rel="stylesheet" href="{{url('css/home.css')}}">
 	
 	<title>SHTC English</title>
 </head>
 <body>
-	<nav>
-		Navbar goes here.
-	</nav>
+	@include('nav')
 
 	<div class="header">
 		<img src="{{url('img/Shtc_english_logo.png')}}" alt="SHTC english">

@@ -1,0 +1,33 @@
+.user__table__container {
+    /* basic styling */
+    width: auto;
+    margin-top: 5%;
+    margin-left: 5%;
+    /* flexbox setup (IE 11+) */
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    flex-direction: row;
+}
+.user__table__container > .flex {
+  flex: 1 1 auto;
+  width: auto; 
+  height: auto;
+  transition: width 0.7s ease-out;
+}
+
+.flex {
+  padding: 10px;
+}
+
+.flex h3 {
+  text-decoration: underline;
+}
+
+.column__post__emoji {
+  text-align: center;
+}
+
+.intro {
+  width:83%;
+  margin: auto;
+}
