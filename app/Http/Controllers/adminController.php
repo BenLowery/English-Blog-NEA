@@ -28,6 +28,7 @@ class adminController extends Controller {
       }
     }
 
+
     public function displayPostReview() {
       $badwords = [];
       
@@ -35,15 +36,20 @@ class adminController extends Controller {
       $posts = $this->db->getPostInfo('accepted', 'no');
       // get corrosponding profanity file
       if($posts->count() > 0) {
-        $profanityfile = Storage::get('profane/' . $posts[0]->url . '.json');
-        $badwords = json_decode($profanityfile, True);
-        // We only need the keys of the array
-        $badwords = array_keys($badwords);
+        // Foreach post check and get profanity file
+        foreach ($posts as $post) {
+          // check if bad word exists
+          if(Storage::exists('profane/' . $post->url . '.json')) {
+            $profanityfile = Storage::get('profane/' . $post->url . '.json');
+            $badwords = json_decode($profanityfile, True);
+            // We only need the keys of the array
+            $badwords = array_keys($badwords);
+          }
+        }
       }
 
       return view('admin.PostReview', array('posts' => $posts, 'badwords' => $badwords));
     }
-
     public function displaySettings() {
       return view('admin.settings');
     }
