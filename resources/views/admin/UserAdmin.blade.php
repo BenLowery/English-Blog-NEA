@@ -11,7 +11,7 @@
 </head>
 <body>
 	@include('nav')
-	<div class="intro"><h1>Hello, Mrs. Lowery</h1></div>
+	<div class="intro"><h1>Admin Dashboard</h1></div>
 	<div class="user__option__container">
 		<div class="flex"><div class="user__option">Review Posts<br /><br /><a href="/admin/post_review"><i class="fa fa-archive fa-4x" aria-hidden="true"></i></a></div></div>
 		<div class="flex"><div class="user__option">View Users<br /><br /><a href="/admin/manage"><i class="fa fa-id-card fa-4x" aria-hidden="true"></i></a></div></div>
