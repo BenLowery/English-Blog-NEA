@@ -11,7 +11,10 @@ use App\BenLowery\Database;
 use Storage;
 
 class adminController extends Controller {
+  
+    // instantiation method
   	public function __construct() {
+      // Define databse
   		$this->db = new \App\BenLowery\Database;
   	}
 
