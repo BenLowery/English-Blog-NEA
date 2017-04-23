@@ -19,7 +19,7 @@
 			                <div style="color:red;"><i class="fa fa-exclamation" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{$flash}}</div>
 			     </div><br />
 		    @endif
-
+			{{--If we have errors--}}
 			@if (count($errors) > 0)
 		       @foreach ($errors->all() as $error)
 		            <div class="error">
@@ -27,6 +27,7 @@
 		            </div><br />
 		        @endforeach
 		    @endif
+		    	{{--The login form, sends post rquest--}}
 			<div class="login__form">
 				<form id="form" action="{{url('/login')}}" method="post">
 					<input type="text" name="email" placeholder="School email" /><br />
