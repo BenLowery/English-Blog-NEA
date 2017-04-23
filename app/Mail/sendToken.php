@@ -32,7 +32,7 @@ class sendToken extends Mailable
      */
     public function build()
     {
-        $address = 'benloweryweb@gmail.com';
+        $address = 'schoolemail@shtc.org.uk';
         $name = 'No reply';
         $subject = 'Login token';
 
