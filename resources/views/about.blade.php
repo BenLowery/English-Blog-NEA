@@ -19,6 +19,10 @@
 	English@SHTC web pages contain links to external web sites which are not affiliated with South Holderness Technology College. SHTC is not responsible for and has no control over these sites, and links to external sites should not be taken as a recommendation or endorsement of the external site’s information, products or services. SHTC  takes no responsibility for any loss or damage suffered as a result of using the linked web sites or as a result of using the information published on any of the pages of the linked web sites.<br /><br /><br />
 
 	Whilst every effort is made to ensure that content is free from viruses and that that this website runs without any problems or interruptions, SHTC cannot accept any liability for damages resulting from virus infection and will not be liable for, nor take any responsibility for this website being temporarily unavailable due to technical or other reasons.
+	<br /><br />
+	The twemoji library is used under the creative commons attribution license: https://github.com/twitter/twemoji<br /><br />
+	The font awesome library is used under the MIT license: http://fontawesome.io/license/<br /><br />
+	The open sans font is used under the SIL Open Font License: https://fonts.google.com/attribution
 	</div>
 </body>
 </html>
