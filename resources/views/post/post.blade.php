@@ -5,7 +5,7 @@
 	<meta name="keywords" content="{{implode(',', $info->tags)}}">
 	<meta name="author" content="{{$info->author}}">
 
-	<title>Running out of ideas - SHTC english blog</title>
+	<title>{{$info->title}} - SHTC english blog</title>
 	
 	<!--Include css file(s)-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -25,6 +25,7 @@
 			<div class="post__metadata__container">
 				<div class="post__author"><i>by</i>&nbsp;&nbsp;&nbsp; <a style="color:#000;" href="/author/{{str_slug($info->author, '_')}}">{{$info->author}}</div><br />
 				<div class="post__tags">
+					{{--Echo all the tags--}}
 					@foreach ($info->tags as $tag)
 						@if(!$loop->last)
 							<a href="/tag/{{$tag}}">{{$tag}}</a>&nbsp;|
@@ -40,7 +41,7 @@
 		<div id="emoji" class="comment__emojis"><h3>React:</h3><br /><i id="grin" class="twa twa-3x twa-grin"></i><i id="joy" class="twa twa-3x twa-joy"></i><i id="thinking-face" class="twa twa-3x twa-thinking-face"></i><i id="confused" class="twa twa-3x twa-confused"></i><i id="sleeping-face" class="twa twa-3x twa-sleeping-face"></i></div>
 	</div>
 
-	{{--Hidden form--}}
+	{{--Hidden form for adding and emoji--}}
 	<form id="form" action="{{url('/post/' . $info->url)}}" method="post">
 		<input type="text" id="hidden-comment" name="emoji" style="display: none;" />
     	<input type="text" id="hidden-title" name="url" value="{{$info->url}}" style="display:none;">
