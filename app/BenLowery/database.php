@@ -150,12 +150,6 @@ class Database {
 		return post::where('url', $name)->update(['accepted' => 'yes']);
 	}
 
-/*********************************/
-	/*********************************/
-		/*Functions for users DB handling*/
-	/*********************************/
-/*********************************/
-
 	// Maybe add to users db if unique, otherwise go straight to token login
 	public function perhapsAddToUsers($user_info) {
 		// array [0] contains email
