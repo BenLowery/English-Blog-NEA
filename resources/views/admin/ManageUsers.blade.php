@@ -17,6 +17,7 @@
 			<div class="column__user">
 				<h3>Name/Year</h3>
 				<hr /><br />
+				{{--Loop every user--}}
 				@foreach ($user_info as $user)
 					<p><a href="#">{{$user->author_name}}</a> / {{$user->year}}</p>
 					<br /><br />
@@ -28,6 +29,7 @@
 			<div class="column__role">
 				<h3>Role</h3>
 				<hr /><br />
+				{{--loop again for the roles--}}
 				@foreach ($user_info as $user)
 					<p>{{$user->role}}</p>
 					<br /><br />
