@@ -9,8 +9,9 @@ use App\BenLowery\Database;
 
 class HomeController extends Controller
 {
-
+	// Constructor function (instantiation)
 	public function __construct() {
+		// Predefine our database class
 		$this->db = new \App\BenLowery\Database;
 	}
 
