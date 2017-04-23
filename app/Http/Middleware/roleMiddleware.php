@@ -18,9 +18,7 @@ class roleMiddleware {
      */
     public function handle($request, Closure $next, $role)
     {
-        /* Using a defensive programming paradigm */
-
-        // if session isn't set, this is the only check for student roles
+        // if session isn't set, redirect
         if(!session()->has('userid')) {
             abort(404);
         }
@@ -30,6 +28,11 @@ class roleMiddleware {
             if(!$this->db->isadmin()) {
                 abort(404);
             } 
+        } elseif ($role === "student") {
+            //if the use is an admin, redirect
+            if($this->db->isAdmin()) {
+                abort(404);
+            }
         }
         return $next($request);
     }

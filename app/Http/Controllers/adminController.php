@@ -10,8 +10,7 @@ use App\BenLowery\Database;
 
 use Storage;
 
-class adminController extends Controller
-{
+class adminController extends Controller {
   	public function __construct() {
   		$this->db = new \App\BenLowery\Database;
   	}
@@ -47,8 +46,20 @@ class adminController extends Controller
     }
 
     public function manageUsers() {
+      $postsCount = [];
+      $tempCount = 0;
+
       $users = $this->db->getUserInfo();
-      return view('admin.ManageUsers', array('user_info' => $users));
+
+      // Get number of posts for each user
+      foreach ($users as $user) {
+        // count number of published posts for each user
+        $tempCount = $this->db->getPostInfoAndAccepted('author', $user->author_name)->count();
+        array_push($postsCount, $tempCount);
+      }
+      
+      // pass to view
+      return view('admin.ManageUsers', array('user_info' => $users, 'published_posts' => $postsCount));
     }
    	/*Accept post*/
    	public function accept($id) {

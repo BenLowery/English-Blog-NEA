@@ -38,6 +38,11 @@
 			<div class="column__published">
 				<h3>Published Posts</h3>
 				<hr /><br />
+				{{--Echo all published posts number--}}
+				@foreach ($published_posts as $num)
+					<p>{{$num}}</p>
+					<br /><br />
+				@endforeach
 			</div>
 		</div>
 	</div>

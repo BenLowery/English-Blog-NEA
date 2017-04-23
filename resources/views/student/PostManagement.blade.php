@@ -46,7 +46,9 @@
 		<div class="flex">
 			<div class="column__post__emoji">
 				<h3>Most Popular Reaction</h3>
-				Coming soon
+				@foreach($popular_emoji as $emoji)
+					<p style="font-size:22px;"><i class="twa twa-{{$emoji}}"></i></p><br /><br />
+				@endforeach
 			</div>
 		</div>
 	</div>

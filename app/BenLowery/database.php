@@ -82,10 +82,10 @@ class Database {
 		// Get all rows with this post id and convert to array
 		$rows = comment::where('post_id', $postid)->get();
 
-		// If empty return joy emoji becasue everyone
+		// If empty return happy emoji becasue everyone
 		// needs a head start
 		if($rows->count() === 0) {
-			return "joy";
+			return "grin";
 		}
 
 		foreach ($rows as $row) {
