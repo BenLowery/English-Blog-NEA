@@ -16,7 +16,7 @@ class HomeController extends Controller
 	}
 
     public function DisplayPosts() {
-        $posts = $this->db->getPostInfo('accepted', 'yes');
+        $posts = $this->db->getPostInfo('accepted', 'yes', 'paginate');
         return view('home', Array('posts' => $posts));
     }
 
