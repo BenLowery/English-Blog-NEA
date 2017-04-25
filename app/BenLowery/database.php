@@ -42,9 +42,17 @@ class Database {
 	}
 
 	// Given a param, get information from post table
-	public function getPostInfo($column, $item) {
+	public function getPostInfo($column, $item, $method = "get") {
+		// We may want to paginate results rather than getting them explicitly
+		// Base this on the method we are given from the extra parameter
+		if ($method === "paginate") {
+			return post::where($column, $item)->paginate(3);
+		}
+
+		// Else return them simply
 		return post::where($column, $item)->get();
 	}
+
 
 	// Return everything
 	public function getUserInfo() {
