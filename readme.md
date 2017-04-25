@@ -34,7 +34,9 @@
 4. go to the host name given after running the command in step 3.
 5. start using the application
 
-
+## Toroubleshooting
+#### Q: Email doesnt send, due to refused connection
+A: This is due to a firewall blocking connections, one example would be on the school wifi.
 
 ### License
 
