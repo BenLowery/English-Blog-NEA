@@ -22,7 +22,10 @@
 				<p>{{$post->description}}...</p>
 			</div>
 		@endforeach
+		{{--Links for navigating pagination--}}
+		{{ $posts->links() }}
 	</div>
+	
 	
 </body>
 </html>
