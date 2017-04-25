@@ -6,7 +6,7 @@
 
 
 ## Installation
-1. Download composer here: https://getcomposer.org/download/
+1. Download and install composer here: https://getcomposer.org/download/
 2. Download zip of this github project
 3. Open terminal and go into this folder
 4. Run composer install
