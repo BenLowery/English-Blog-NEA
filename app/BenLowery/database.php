@@ -46,7 +46,7 @@ class Database {
 		// We may want to paginate results rather than getting them explicitly
 		// Base this on the method we are given from the extra parameter
 		if ($method === "paginate") {
-			return post::where($column, $item)->paginate(3);
+			return post::where($column, $item)->paginate(5);
 		}
 
 		// Else return them simply
