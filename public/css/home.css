@@ -22,3 +22,11 @@
 	box-shadow: 2px 2px 2px 1px rgba(69,69,69,0.069);
 
 }
+
+.postlist__container li {
+	/*Remove list look*/
+	list-style: none;
+	/* Make sure its all on one line*/
+	display:inline;
+	padding: 12px;
+}
