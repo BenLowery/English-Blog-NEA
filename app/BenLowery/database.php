@@ -155,6 +155,8 @@ class Database {
 
 	// Accept a post
 	public function acceptPost($name) {
+		// Delete the profane filter json file
+		storage::delete('profane/' . $name . '.json');
 		return post::where('url', $name)->update(['accepted' => 'yes']);
 	}
 
