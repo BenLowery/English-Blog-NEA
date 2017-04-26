@@ -11,10 +11,14 @@ use App\BenLowery\Database;
 use Storage;
 
 class adminController extends Controller {
-  
-    // instantiation method
+    // Content file
+    public $contentfile;
+    // temp contents
+    public $tempcontents;
+
+    // Instantiation method
   	public function __construct() {
-      // Define databse
+       // Define database class
   		$this->db = new \App\BenLowery\Database;
   	}
 
@@ -28,7 +32,6 @@ class adminController extends Controller {
       }
     }
 
-
     public function displayPostReview() {
       $badwords = [];
       
@@ -36,20 +39,45 @@ class adminController extends Controller {
       $posts = $this->db->getPostInfo('accepted', 'no');
       // get corrosponding profanity file
       if($posts->count() > 0) {
+        // Convert posts to array to handle easier. 
+
         // Foreach post check and get profanity file
         foreach ($posts as $post) {
-          // check if bad word exists
-          if(Storage::exists('profane/' . $post->url . '.json')) {
-            $profanityfile = Storage::get('profane/' . $post->url . '.json');
+          // Get corrspondind posts file
+          $this->contentfile = file_get_contents('../resources/views/posts_files/' . $post["url"] . '.blade.php');
+
+          // check if bad word file exists
+          if(Storage::exists('profane/' . $post["url"] . '.json')) {
+            $profanityfile = Storage::get('profane/' . $post["url"] . '.json');
+            
+            // Decode json file with that posts bar words
             $badwords = json_decode($profanityfile, True);
             // We only need the keys of the array
             $badwords = array_keys($badwords);
+              
+            // Make all badwords marked
+            $Markedbadwords = $badwords;
+            array_walk($Markedbadwords, 
+                function(&$value, $key) { 
+                    $value = "<mark>" . $value . "</mark>";
+                }
+            );
+          
+            // highlight all bad words
+            $this->tempcontents = str_replace($badwords, $Markedbadwords, $this->contentfile); 
+
+            // Push to array
+            $post["contents"] = $this->tempcontents;
+
+          } else {
+            // Just push original file to array
+            $post["contents"] = $this->contentfile;
           }
         }
       }
-
-      return view('admin.PostReview', array('posts' => $posts, 'badwords' => $badwords));
+      return view('admin.PostReview', array('posts' => $posts));
     }
+
     public function displaySettings() {
       return view('admin.settings');
     }
