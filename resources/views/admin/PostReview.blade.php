@@ -24,13 +24,11 @@
 		<div class="popup__item__quit"><a href="#"><h1>X</h1></a></div>
 	<div class="popup__item__container">
 		<div class="popup__item__contents">
-			<div class="header">possibly innapropriate words:<br />
-				@foreach ($badwords as $badword)
-					<mark>{{$badword}}</mark>&nbsp;&nbsp;
-				@endforeach
+			<div class="header">possibly innapropriate words are highlighted:<br />	
+
 			</div><br /><br />
 			<div class="popup__item__text">
-				<p>@include('posts_files/' . $post->url)</p>
+				<p>{!! $post->contents !!}</p>
 			</div>	
 		</div>
 	</div>	
