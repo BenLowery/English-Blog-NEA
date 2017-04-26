@@ -3,6 +3,7 @@
 ## Pre-Requirements
 1. PHP 7
 2. MySql
+3. An internet connection
 
 
 ## Installation
