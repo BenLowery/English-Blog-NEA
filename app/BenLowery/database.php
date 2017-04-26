@@ -21,6 +21,7 @@ use App\Models\Posts as post;
 use App\Models\Users as user;
 use App\Models\Tokens as token;
 use Storage;
+use Illuminate\Support\Facades\DB;
 
 class Database {
 
@@ -52,7 +53,6 @@ class Database {
 		// Else return them simply
 		return post::where($column, $item)->get();
 	}
-
 
 	// Return everything
 	public function getUserInfo() {
@@ -159,7 +159,6 @@ class Database {
 		storage::delete('profane/' . $name . '.json');
 		return post::where('url', $name)->update(['accepted' => 'yes']);
 	}
-
 	// Maybe add to users db if unique, otherwise go straight to token login
 	public function perhapsAddToUsers($user_info) {
 		// array [0] contains email
