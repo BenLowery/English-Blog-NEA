@@ -35,13 +35,15 @@
 4. go to the host name given after running the command in step 3.
 5. start using the application
 
-## Toroubleshooting
+## Troubleshooting
 #### Q: Email doesnt send, due to refused connection
 A: This is due to a firewall blocking connections, one example would be on the school wifi.
+#### Q: Navigation bar when logged in doesnt change on 404 pages
+A: This seems to be a known Laravel problem which people dont seem to be able to solve properly. The problem lies with the auth session not being able to pass to error pages. 
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-The twemoji library is used under the creative commons attribution license: https://github.com/twitter/twemoji
-The font awesome library is used under the MIT license: http://fontawesome.io/license/
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).<br />
+The twemoji library is used under the [creative commons attribution license](https://github.com/twitter/twemoji).<br />
+The font awesome library is used under the [MIT license](http://fontawesome.io/license/).<br />
 The open sans font is used under the SIL Open Font License: https://fonts.google.com/attribution
